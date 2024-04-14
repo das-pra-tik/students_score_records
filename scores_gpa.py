@@ -65,49 +65,6 @@ def student_score():
     print(tabulate(student_record, headers=headers,
           showindex=serial_no, tablefmt="heavy_grid"))
 
-# def student_gpa(subject_names, student_scores, student_names):
-
-#     # Get number of Subjects & Students
-#     subject_count = len(subject_names)
-#     student_count = len(student_names)
-#     student_gpa = []
-#     serial_no = []
-#     # Aggregate score of all subjects for a student
-#     for x in range(student_count):
-#         name = []
-#         totalscore = []
-#         avgscore = []
-#         gpa = []
-#         t = 0
-#         for y in range(subject_count):
-#             t = student_scores[x][y] + t
-#             avg_score = t/subject_count
-#             if avg_score >= 90:
-#                 GPA = 4.0
-#             elif 80 <= avg_score < 90:
-#                 GPA = 3.0
-#             elif 70 <= avg_score < 80:
-#                 GPA = 2.0
-#             elif 60 <= avg_score < 70:
-#                 GPA = 1.0
-#             else:
-#                 GPA = 0.0
-        
-#         serial_no.append(str(x+1))
-#         name.append(student_names[x])
-#         totalscore.append(int(t))
-#         avgscore.append(float(avg_score))
-#         gpa.append(GPA)
-    
-#         student_gpa.append(name + totalscore + avgscore + gpa)
-    
-#     banner(message='Students GPA Table')
-#     headers = ["Student Name"]+["Total Score"] + \
-#         ["Avg. Score"]+["Grade Point Average (GPA)"]
-#     # Create a table with index
-#     print(tabulate(student_gpa, headers=headers,
-#           showindex=serial_no, tablefmt="heavy_grid"))
-
 def student_rank(subject_names, student_scores, student_names):
     # Get number of Subjects & Students
     subject_count = len(subject_names)
@@ -126,26 +83,26 @@ def student_rank(subject_names, student_scores, student_names):
             t = student_scores[x][y] + t
             avg_score = t/subject_count
             if avg_score >= 90:
-                GPA = float(4.0)
+                GPA = str(4.0)
             elif 85 <= avg_score < 90:
-                GPA = float(3.5)
+                GPA = str(3.5)
             elif 80 <= avg_score < 85:
-                GPA = float(3.0)
+                GPA = str(3.0)
             elif 75 <= avg_score < 80:
-                GPA = float(2.5)
+                GPA = str(2.5)
             elif 70 <= avg_score < 75:
-                GPA = float(2.0)
+                GPA = str(2.0)
             elif 65 <= avg_score < 70:
-                GPA = float(1.5)
+                GPA = str(1.5)
             elif 60 <= avg_score < 65:
-                GPA = float(1.0)
+                GPA = str(1.0)
             else:
-                GPA = float(0.0)
+                GPA = str(0.0)
 
         name.append(student_names[x])
         totalscore.append(int(t))
         avgscore.append(float(avg_score))
-        gpa.append(float(GPA))
+        gpa.append(GPA)
         temp_rank_record.append(name + totalscore + avgscore + gpa) 
     
     sorted_rank_record = sorted(temp_rank_record, key=itemgetter(1), reverse=True)
@@ -171,5 +128,4 @@ def student_rank(subject_names, student_scores, student_names):
     print(tabulate(final_rank_record, headers=headers, tablefmt="heavy_grid"))    
         
 student_score()
-# student_gpa(subject_names, student_scores, student_names)
 student_rank(subject_names, student_scores, student_names)
