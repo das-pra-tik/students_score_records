@@ -106,7 +106,7 @@ def student_rank(subject_names, student_scores, student_names):
         temp_rank_record.append(name + totalscore + avgscore + gpa) 
     
     sorted_rank_record = sorted(temp_rank_record, key=itemgetter(1), reverse=True)
-    # print(sorted_rank_record)
+    
     i=0
     for subrecord in sorted_rank_record:
         rank_index = []
@@ -121,7 +121,7 @@ def student_rank(subject_names, student_scores, student_names):
         rank_avgscore.append(subrecord[2])
         rank_gpa.append(subrecord[3])
         final_rank_record.append(rank_index + rank_name + rank_totalscore + rank_avgscore + rank_gpa)     
-    # print(final_rank_record)
+    
     banner(message='Students Rank Table')
     headers = ["Rank"]+["Student Name"]+["Total Score"]+["Average Score"]+["GPA"]
     # Create a table with index
